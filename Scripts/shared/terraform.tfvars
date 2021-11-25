@@ -1,0 +1,5 @@
+password = "$(password)"
+#azurerm_subscription_id                   = "$(AZURE_SUBSCRIPTION_ID)"
+#azurerm_tenant_id                         = "#{AM_AZURE_TENANT_ID}"
+#azurerm_client_id                         = "#{AM_AZURE_CLIENT_ID}"
+#azurerm_client_secret                     = "#{AM_AZURE_CLIENT_SECRET}"

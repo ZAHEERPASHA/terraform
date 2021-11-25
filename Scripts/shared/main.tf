@@ -9,12 +9,12 @@ terraform {
     resource_group_name   = "csp-forgeapm-remotestate-rg"
     storage_account_name  = "cspforgeapmtfstate" 
     container_name        = "fapmtest"
-    key                   = "samplerg"
+    key                   = "samplerg2"
   }  
 }
 
 
 resource "azurerm_resource_group" "sample-rg" {
-  name     = "sample-rg"
+  name     = ${var.password}
   location = "West US"
 }

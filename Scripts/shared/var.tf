@@ -12,6 +12,11 @@ variable "client_id" {
   description = "A variable that holds azure client IDn"
   default     = ""
 }
+variable "password" {
+  description = "password"
+  default     = ""
+}
+
 
 variable "client_secret" {
   description = "A variable that holds azure secret"
