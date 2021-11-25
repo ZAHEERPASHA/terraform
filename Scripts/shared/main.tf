@@ -18,9 +18,6 @@ data "azurerm_key_vault" "keyvault" {
   name                = "testkeyva"
   resource_group_name = "csp-test-rsg"
 }
-output "vault_uri" {
-  value = data.azurerm_key_vault.central.vault_uri
-}
 
 data "azurerm_key_vault_secret" "passwd" {
   name         = "password"
@@ -28,6 +25,7 @@ data "azurerm_key_vault_secret" "passwd" {
 }
 output "secret_value" {
   value = data.azurerm_key_vault_secret.passwd.value
+  sensitive               = true
 }
 
 resource "azurerm_resource_group" "sample-rg" {
