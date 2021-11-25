@@ -14,7 +14,27 @@ terraform {
 }
 
 
+
+data "azurerm_key_vault" "keyvault" {
+  name                = "testkeyva"
+  resource_group_name = "csp-test-rsg"
+}
+output "vault_uri" {
+  value = data.azurerm_key_vault.central.vault_uri
+}
+
+data "azurerm_key_vault_secret" "passwd" {
+  name         = "password"
+  key_vault_id = data.azurerm_key_vault.keyvault.id
+}
+output "secret_value" {
+  value = data.azurerm_key_vault_secret.passwd.value
+}
+
 resource "azurerm_resource_group" "sample-rg" {
-  name     = ${var.password}
+  name     = ${data.azurerm_key_vault_secret.passwd.value}
   location = "West US"
 }
+
+
+
