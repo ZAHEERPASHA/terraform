@@ -101,7 +101,3 @@ variable azurerm_vm_password {
   default     = "azurepassword"
 }
 
-variable "azurerm_image_id" {
-  description = "Shared Image Gallery - Image Resource Id"
-  default = "/subscriptions/c69974c8-cf72-4b7c-90a9-c5356ca6196a/resourceGroups/HCE-CPLT-OPM-IMAGELIBRARY/providers/Microsoft.Compute/images/uswestedmsit-generalizedimage"
-}
