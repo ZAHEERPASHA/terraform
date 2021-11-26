@@ -11,12 +11,21 @@ list of tools you will create amd store the terraform templates
 Git repository -- to version terraform files
 Storage account & Container -- to version & store backend tfstate files
 Az App registration -- to manage authorization/permissions to provision resources in Subscription 
-
+Key vault to manage secrets
 
 explain the process and steps to create automated deployment pipelines ?
  - Verion control files in GitHub
- - Create CI pipeline and refer git sources
+ - Create Release pipeline and refer github source
+ - Add Terraform task to release job
+ - Link key vault to linked variables
  - Create the yaml deployment pipeline
 	- Add terraform task.
-	- provide resource details to preserve backend statefile
+	- provide storage account details to preserve backend statefile
  	- provide inputs to call terraform scripts
+
+Explain how will you access the passwd stored in the keyvault and use it as admin passwd in the VM terraform template
+Approach#1:
+- read secrets from vault in to tfvars file and use it as a variable in terraform script
+
+Approach#2:
+- Terraform data block to access key vault objects and secrets and use it as output value.

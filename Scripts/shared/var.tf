@@ -35,16 +35,73 @@ variable "location" {
 
 variable "env" {
   description = "A variable that holds env"
-  default     = "qa"
+  default     = "dev"
 }
 
 variable "virtual_network_name" {
   description = "virtual network name"
-  default     = "CSP-FAPM-NonProd-Vnet"
+  default     = "sample-Vnet"
 }
 
-variable "network_config" {
-  description = "network configuration details"
-  type        = map(string)
-  default     = {resource_group_name = "HPS-TestCA-Dev-USWest-2.0" , vnet_name = "HPS-TestCA-Dev-USWest-2.0",subnet_name = "TestCA-Group2-2.0"}
+
+
+variable "vnet_address_space" {
+  default = "10.0.0.0/16"
+}
+
+
+variable "subnet_prefix" {
+    default = [
+        "10.0.1.0/24",
+        "10.0.2.0/24"
+    ]
+} 
+
+
+variable "azurerm_vm_name" {
+  description = "Virtual Machine Name. This will be the prefix"
+  default     = "testvm"
+}
+
+variable "azurerm_vm_size" {
+  description = "Azure VM Size"
+  default     = "Standard_DS1_v2"
+  type        = string
+}
+variable azurerm_vm_managed_disk_type {
+  description = "Enter type of managed disk"
+  default     = "Standard_LRS"
+  type        = string
+}
+
+variable azure_vm_delete_os_disk_on_termination {
+  description = "Whether to delete os disk on VM termination"
+  default     = true
+  type        = bool
+}
+
+variable azure_vm_delete_data_disks_on_termination {
+  description = "Whether to delete data disk on VM termination"
+  default     = false
+  type        = bool
+}
+
+variable "azurerm_vm_disk_size" {
+  description = "Size of the OS Disk in GB"
+  default     = "128"
+}
+
+variable azurerm_vm_username {
+  type = string
+  default     = "azureuser"
+}
+
+variable azurerm_vm_password {
+  type = string
+  default     = "azurepassword"
+}
+
+variable "azurerm_image_id" {
+  description = "Shared Image Gallery - Image Resource Id"
+  default = "/subscriptions/c69974c8-cf72-4b7c-90a9-c5356ca6196a/resourceGroups/HCE-CPLT-OPM-IMAGELIBRARY/providers/Microsoft.Compute/images/uswestedmsit-generalizedimage"
 }
