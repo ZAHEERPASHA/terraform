@@ -15,7 +15,7 @@ Key vault to manage secrets
 
 explain the process and steps to create automated deployment pipelines ?
  - Verion control files in GitHub
- - Create Release pipeline and refer github source
+ - Create Release pipeline and add github source as an artifact
  - Add Terraform task to release job
  - Link key vault to linked variables
  - Create the yaml deployment pipeline
